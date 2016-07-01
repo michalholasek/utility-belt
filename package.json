@@ -1,0 +1,35 @@
+{
+  "name": "utility-belt",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "description": "Tailor's utility belt",
+  "scripts": {
+    "build:all": "npm run build:copy && npm run build:test && npm run build:server",
+    "build:copy": "babel build/copy.babel.js -o build/copy.js",
+    "build:server": "babel test/server.js -o dist/server.js",
+    "build:test": "browserify test/index.js -t babelify -o dist/public/test.bundle.js",
+    "clean": "rimraf dist build/copy.js",
+    "copy": "node build/copy.js",
+    "dev": "nodemon --watch index.js --watch src --watch test -x \"npm run make\"",
+    "dir:production": "mkdir dist",
+    "dir:test": "mkdir dist && cd dist && mkdir public",
+    "make": "npm run clean && npm run dir:test && npm run build:all && npm run copy && npm run server",
+    "server": "node dist/server.js",
+    "test": "mocha --compilers js:babel-core/register ./test/unit/"
+  },
+  "author": "Michal Holasek <isindzr@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6.3.17",
+    "babel-preset-es2015": "6.3.13",
+    "babelify": "7.2.0",
+    "body-parser": "1.14.1",
+    "browserify": "12.0.1",
+    "chai": "3.3.0",
+    "cpy": "3.4.1",
+    "express": "4.13.3",
+    "mocha": "2.3.3",
+    "nodemon": "1.8.1",
+    "rimraf": "2.4.3"
+  }
+}
