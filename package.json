@@ -2,7 +2,7 @@
   "name": "utility-belt",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "description": "Tailor's utility belt",
+  "description": "JavaScript library with a small set of utility functions. Works in both browser and Node.js.",
   "scripts": {
     "build:all": "npm run build:copy && npm run build:test && npm run build:server",
     "build:copy": "babel build/copy.babel.js -o build/copy.js",
