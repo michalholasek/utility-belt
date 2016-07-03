@@ -12,10 +12,10 @@ const vendor = [
   'node_modules/chai/chai.js'
 ];
 
-cpy(misc, 'dist/public', (err) => {
+cpy(misc, 'dist/server/public', (err) => {
     if (err) console.log(err.message);
 });
 
-cpy(vendor, 'dist/public/vendor', (err) => {
+cpy(vendor, 'dist/server/public/vendor', (err) => {
     if (err) console.log(err.message);
 });
