@@ -1,4 +1,3 @@
-import Error from './lib/error';
 import { isFunction, validate } from './lib/utils';
 
 export const compose = (...callbacks) => {
@@ -12,7 +11,7 @@ export const compose = (...callbacks) => {
   const isValid = (callbacks.length !== 0 && validate(callbacks, isFunction));
 
   if (!isValid) {
-    throw Error('Supplied arguments are not functions.');
+    throw new Error('Supplied arguments are not functions.');
   }
 
   return composite;
@@ -27,7 +26,7 @@ export const curry = (fn) => {
   };
 
   if (!isFunction(fn)) {
-    throw Error('Supplied argument is not a function.');
+    throw new Error('Supplied argument is not a function.');
   }
 
   return createCurry();
@@ -39,7 +38,7 @@ export const partial = (fn, ...boundArgs) => {
   };
 
   if (!isFunction(fn)) {
-    throw Error('First argument is not a function.');
+    throw new Error('First argument is not a function.');
   }
 
   return boundFunction;
