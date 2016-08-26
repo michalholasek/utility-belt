@@ -43,3 +43,27 @@ export function partial(fn, ...boundArgs) {
 
   return boundFunction;
 }
+
+export function zip(left, right, combiner) {
+  if (!Array.isArray(left)) {
+    throw new Error('First argument is not an array.');
+  }
+
+  if (!Array.isArray(right)) {
+    throw new Error('Second argument is not an array.');
+  }
+
+  if (!isFunction(combiner)) {
+    throw new Error('Combiner argument is not a function.');
+  }
+
+  const min = Math.min(left.length, right.length);
+
+  let result = [];
+
+  for (let index = 0; index < min; index++) {
+    result.push(combiner(left[index], right[index]));
+  }
+
+  return result;
+}
