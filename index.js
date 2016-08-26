@@ -17,6 +17,18 @@ export function compose(...callbacks) {
   return composite;
 }
 
+export function concatAll(array) {
+  if (!Array.isArray(array)) {
+    throw new Error('Supplied argument is not an array.');
+  }
+
+  return array.reduce((result, current) => {
+    if (!Array.isArray(current)) result.push(current);
+    else result.push(...current);
+    return result;
+  }, []);
+}
+
 export function curry(fn) {
   function createCurry(...boundArgs) {
     return function boundFunction(...currentArgs) {
