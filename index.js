@@ -57,12 +57,8 @@ export function partial(fn, ...boundArgs) {
 }
 
 export function zip(left, right, combiner) {
-  if (!Array.isArray(left)) {
-    throw new Error('First argument is not an array.');
-  }
-
-  if (!Array.isArray(right)) {
-    throw new Error('Second argument is not an array.');
+  if (!Array.isArray(left) || !Array.isArray(right)) {
+    throw new Error('First, second or both arguments are not an array.');
   }
 
   if (!isFunction(combiner)) {

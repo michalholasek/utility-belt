@@ -12,12 +12,12 @@ describe('zip', () => {
 
   it('should throw an error if first argument is not an array', () => {
     expect(() => zip(undefined)).to.throw(Error);
-    expect(() => zip(undefined)).to.throw('First argument is not an array.');
+    expect(() => zip(undefined)).to.throw('First, second or both arguments are not an array.');
   });
 
   it('should throw an error if second argument is not an array', () => {
     expect(() => zip([], undefined)).to.throw(Error);
-    expect(() => zip([], undefined)).to.throw('Second argument is not an array.');
+    expect(() => zip([], undefined)).to.throw('First, second or both arguments are not an array.');
   });
 
   it('should throw an error if combiner argument is not a function', () => {
